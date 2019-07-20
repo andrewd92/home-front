@@ -1,7 +1,8 @@
 # Smart home frontend application
 
 > This application I will use to manage devices in my home. <br />
-> This is easy to manage nuxt js application for control my home   
+> This is easy to manage nuxt js application for control my home. <br />
+> I use Materilizecss  framework for create beautiful frontend
 
 ## Build Setup
 
