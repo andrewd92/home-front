@@ -1,6 +1,7 @@
-# home-front
+# Smart home frontend application
 
-> My Home
+> This application I will use to manage devices in my home. <br />
+> This is easy to manage nuxt js application for control my home   
 
 ## Build Setup
 
@@ -19,4 +20,6 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+<br />
+
+[Nuxt.js docs](https://nuxtjs.org).
