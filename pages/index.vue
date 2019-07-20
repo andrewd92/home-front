@@ -13,8 +13,8 @@
 
               <span class="title">{{ room.name }}</span>
 
-              <p>Above the bad <br>
-                Above the cupboard
+              <p>
+                <span v-for="bulb in room.switches" :key="bulb.id">{{ bulb.name }} <br></span>
               </p>
             </a>
 
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     toggle(roomId) {
-      this.$store.commit('TOGGLE', roomId);
+      this.$store.commit('TOGGLE_ROOM', roomId);
     },
     avatarClass(room) {
       let color = room.state ? 'yellow' : 'gray';
