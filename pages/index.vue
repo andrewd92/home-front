@@ -76,4 +76,13 @@ export default {
   li i.medium {
     font-size: 2rem !important;
   }
+
+  li.avatar a {
+    display: block;
+    margin-right: 70px !important;
+  }
+
+  span.badge {
+    height: 100%;
+  }
 </style>
