@@ -1,20 +1,26 @@
 export const state = () => ({
-  rooms: {
-    1: {id: 1, name: 'Kitchen', state: false,
-      switches: {1: {id: 1, name: 'Свет над холодильником', image: 'cabinet.jpg', state: false}}
-    },
-    2: {id: 2, name: 'Cabinet', state: false,
-      switches: {
-        2: {id: 2, name: 'Свет на потолке', image: 'cabinet.jpg', state: false},
-        4: {id: 4, name: 'Лампа возле компа', image: 'cabinet_lamp.jpeg', state: false},
-      }
-    },
-  },
+  rooms: {},
 })
 
+import axios from 'axios';
+import {HOST} from '../config/config';
+
+export const actions = {
+  toggleSwitch({commit}, params) {
+    axios.post(HOST + '/api/switch/' + params.switchId +'/toggle')
+      .then((res) => {
+        commit('TOGGLE_SWITCH', {roomId: params.roomId, switchId: params.switchId});
+      })
+  }
+}
+
 export const mutations = {
+  SET_ROOMS(state, rooms) {
+    state.rooms = rooms;
+  },
   TOGGLE_ROOM(state, roomId) {
     let room = state.rooms[roomId];
+
     room.state = !room.state;
   },
   TOGGLE_SWITCH(state, params) {
@@ -28,11 +34,11 @@ export const mutations = {
     for (let i in room.switches) {
       if (room.switches[i].state === true) {
         roomState = true;
+        break;
       }
     }
 
     room.state = roomState;
-
   }
 }
 

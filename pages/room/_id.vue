@@ -33,8 +33,7 @@
     },
     methods: {
       toggle(bulb) {
-        console.log(bulb);
-        this.$store.commit('TOGGLE_SWITCH', {roomId: this.room.id, switchId: bulb.id});
+        this.$store.dispatch('toggleSwitch', {roomId: this.room.id, switchId: bulb.id});
       },
       getButtonClass(bulb) {
         let color = bulb.state ? 'yellow' : 'gray';

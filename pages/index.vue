@@ -40,8 +40,16 @@
 </template>
 
 <script>
+import axios from 'axios';
+import {HOST} from '../config/config';
 
 export default {
+  fetch ({ store, params }) {
+    return axios.get(HOST + '/api/rooms')
+            .then((res) => {
+              store.commit('SET_ROOMS', res.data)
+            })
+  },
   computed: {
     rooms() {
       return this.$store.state.rooms;
